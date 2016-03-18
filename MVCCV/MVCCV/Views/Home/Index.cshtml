@@ -1,0 +1,143 @@
+﻿@model MVCCV.Models.ContactModel
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>@ViewBag.Title</title>
+    <style>
+        .clear {
+            clear: both;
+            display: block;
+            overflow: hidden;
+            visibility: hidden;
+            height: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Suren Hakobyan`s Resume <b>(created with HTML)</b></h1>
+    </header>
+    <content>
+        <section>
+            <header>
+                <img src="/Images/personal.png" height="30" style="float: left">
+                <h1><strong>Personal Info</strong></h1>
+            </header>
+            <div>
+                <div>
+                    <figure>
+                        <img src="/Images/img.jpg" height="300">
+                        <figcaption>Personal photo</figcaption>
+                    </figure>
+                </div>
+                <div>
+                    <p>Suren Hakobyan</p>
+                    <time datetime="1996-02-07">February 7th, 1996</time>
+                    <p><a href="#contactform">COntact Me</a></p>
+                    <p><a href="#comingsoon">Hire Me</a></p>
+                    @System.Diagnostics.Debug.WriteLine(ViewBag.tabindex)
+                </div>
+            </div>
+        </section>
+        <section>
+            <header><h2><strong>Advantages</strong></h2></header>
+            <div>
+                <ul>
+                    <li><p>Concentration</p></li>
+                    <li><p>Detail Oriented</p></li>
+                    <li><p>Troubleshooting Skills</p></li>
+                    <li><p>Strong logic and reasoning skills</p></li>
+                    <li><p>Work in a team or individually with ability to handle multiple tasks,problem solving,decision making and communication skills</p></li>
+                    <li><p>Ability to meet deadlines</p></li>
+                </ul>
+            </div>
+        </section>
+        <div>
+            <header>
+                <img src="/Images/Education.png" height="30" style="float: left">
+                <h2><strong>Education</strong></h2>
+            </header>
+            <div>
+                <ol>
+                    <li><p>High school in Jermuk,Jermuk Armenia <i>(2010 - 2013)</i></p></li>
+                    <li><p>Yerevan State University, Faculty of Informatics and Applied Mathematics.<i>(urrently study here, on the third year)</i></p></li>
+                    <li><p>Internship in "Արմենտել ՓԲԸ", learn SQL Server <i>from February 17 to March 17. 2016</i></p></li>
+                    <li><p>Mic Armenia, Frontend Developing <i>(currently study here)</i></p></li>
+                </ol>
+            </div>
+        </div>
+        <section>
+            <header>
+                <img src="/Images/Skills.png" height="30" style="float: left">
+                <h2><strong>Skills</strong></h2>
+            </header>
+            <div>
+                <ul>
+                    <li><p>C# <i>(junior level)</i></p></li>
+                    <li><p>OOP principles</p></li>
+                    <li><p>.NET platform</p></li>
+                    <li><p>ASP.NET MVC</p></li>
+                    <li><p>Standart Query Language (SQL)</p></li>
+                    <li><p>C++</p></li>
+                    <li><p>Knowledgr of Data Structures</p></li>
+                    <li><p>Basics of HTML and CSS</p></li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="contactform">
+            <div>
+                <h4>If You have any question or suggestion, please send me mail</h4>
+                <form method="post" action="/Home/SendMail">
+                    <div>
+                        <fieldset>
+                            @Html.TextBoxFor(model => model.Name, new { Value = "NAme...", @onblur = "if (this.value == '') {this.value = 'Name...';}", @onfocus = "this.value = '';" })
+                            @*<input value="NAme..." onblur="if (this.value == '') {this.value = 'Name...';}" onfocus="this.value = '';" type="text">*@
+
+                            <div class="clear"></div>
+
+                            @Html.TextBoxFor(model => model.Email, new { Value = "Email...", @onblur = "if (this.value == '') {this.value = 'Email...';}", @onfocus = "this.value = '';", @type = "email" })
+                            @*<input value="Email..." onblur="if (this.value == '') {this.value = 'Email...';}" onfocus="this.value = '';" type="email">*@
+
+                            <div class="clear"></div>
+
+                            @Html.TextBoxFor(model => model.Subject, new { Value = "Subject...", @onblur = "if (this.value == '') {this.value = 'Subject...';}", @onfocus = "this.value = '';" })
+                            @*<input value="Subject..." id="Subject" name="Subject" onblur="if (this.value == '') {this.value = 'Subject...';}" onfocus="this.value = '';" type="text">*@
+
+                            <div class="clear"></div>
+
+                            @Html.TextAreaFor(model => model.Message, new { Value = "Message...", @onblur = "if (this.value == '') {this.value = 'Message...';}", @onfocus = "this.value = '';", @cols = "22", @rows = "5" })
+                            @*<textarea value="Message..." cols="20" data-val="true" data-val-required="Message is required" id="Message" name="Message" onblur="if (this.value == '') {this.value = 'Message...';}" onfocus="this.value = '';" rows="2"></textarea>*@
+
+
+                            <div>
+                                <input type="reset" value="Clear">
+                                <input type="submit" value="Submit">
+                            </div>
+                        </fieldset>
+
+                    </div>
+                </form>
+            </div>
+        </section>
+    </content>
+    <footer>
+        <div>
+            <p>Stay Connected</p>
+            <nav>
+                <p><a href="https://fb.com">Facebook</a></p>
+                <p><a href="https://twitter.com">Twitter</a></p>
+                <p><a href="https://pluse.google.com">Google+</a></p>
+                <p><a href="https://youtube.com">Youtube</a></p>
+            </nav>
+        </div>
+        <div>
+            <p>All Rights Reserved <time>2015-2016</time></p>
+        </div>
+    </footer>
+</body>
+
+</html>
